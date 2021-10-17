@@ -1,53 +1,51 @@
 #!/usr/bin/env bash
 set -e
 
-# Arch Linux Install Script Packages (alis-packages) installs software
-# packages.
+# Arch Linux Install Script Packages (alis-packages) устанавливает программное обеспечение
+# пакетов.
 # Copyright (C) 2021 picodotdev
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Это бесплатное программное обеспечение: вы можете распространять и / или изменять
+# это в соответствии с условиями Стандартной общественной лицензии GNU,
+# опубликованной Free Software Foundation, либо версии 3 Лицензии, либо
+# (по вашему выбору) любой более поздней версии.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# Эта программа распространяется в надежде, что она будет полезной,
+# но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемой гарантии
+# ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Подробнее см.
+# Стандартную общественную лицензию GNU.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# Вы должны были получить копию Стандартной общественной лицензии GNU
+# вместе с этой программой. Если нет, см. <Http://www.gnu.org/licenses/>.
 
-# This script is hosted at https://github.com/picodotdev/alis. For new features,
-# improvements and bugs fill an issue in GitHub or make a pull request.
-# Pull Request are welcome!
+# Этот скрипт размещен по адресу https://github.com/mrgeek12/alis. Для новых функций
+# улучшений и ошибок, заполните проблему в GitHub или сделайте запрос на перенос.
+# Pull Request приветствуются!
 #
-# If you test it in real hardware please send me an email to pico.dev@gmail.com with
-# the machine description and tell me if somethig goes wrong or all works fine.
+# Если вы тестируете его на реальном оборудовании, пришлите мне письмо на mr.geek1@protonmail.com с
+# описанием машины и сообщите мне, если что-то пойдет не так или все работает нормально.
 #
-# Please, don't ask for support for this script in Arch Linux forums, first read
-# the Arch Linux wiki [1], the Installation Guide [2] and the General
-# Recomendations [3], later compare the commands with those of this script.
+# Пожалуйста, не просите поддержки для этого скрипта на форумах Arch Linux, сначала прочтите
+# вики Arch Linux [1], Руководство по установке [2] и Общие
+# Рекомендации [3], позже сравните команды с командами этого скрипта.
 #
 # [1] https://wiki.archlinux.org
 # [2] https://wiki.archlinux.org/index.php/Installation_guide
 # [3] https://wiki.archlinux.org/index.php/General_recommendations
 
-# Reference:
-# * [Change root](https://wiki.archlinux.org/index.php/Change_root)
-# * [Deactivate volume group](https://wiki.archlinux.org/index.php/LVM#Deactivate_volume_group)
-
-# Usage:
-# # loadkeys es
-# # curl https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash, or with URL shortener curl -sL https://bit.ly/2F3CATp | bash
-# # vim alis-packages.conf
+# Использование:
+# # loadkeys ru
+# # iwctl --passphrase "[WIFI_KEY]" station [WIFI_INTERFACE] connect "[WIFI_ESSID]"
+# (Необязательно) Подключитесь к сети Wi-Fi. _ip link show_ узнать WIFI_INTERFACE.
+# # curl https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash, curl https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash -s -- -u [github user], или сокращенная ссылка curl -sL https://bit.ly/2F3CATp | bash
+# # nano alis-packages.conf
 # # sudo ./alis-packages.sh
 
-# enviroment variables
+# переменные среды
 #USER_NAME=""
 #USER_PASSWORD=""
 
-# global variables (no configuration, don't edit)
+# глобальные переменные (без конфигурации, не редактировать)
 SYSTEM_INSTALLATION="false"
 
 CONF_FILE="alis-packages.conf"
@@ -73,10 +71,10 @@ function sanitize_variables() {
 
 function sanitize_variable() {
     VARIABLE=$1
-    VARIABLE=$(echo $VARIABLE | sed "s/![^ ]*//g") # remove disabled
-    VARIABLE=$(echo $VARIABLE | sed "s/ {2,}/ /g") # remove unnecessary white spaces
-    VARIABLE=$(echo $VARIABLE | sed 's/^[[:space:]]*//') # trim leading
-    VARIABLE=$(echo $VARIABLE | sed 's/[[:space:]]*$//') # trim trailing
+    VARIABLE=$(echo $VARIABLE | sed "s/![^ ]*//g") # удалить отключено
+    VARIABLE=$(echo $VARIABLE | sed "s/ {2,}/ /g") # удалить ненужные пробелы
+    VARIABLE=$(echo $VARIABLE | sed 's/^[[:space:]]*//') # обрезать ведущий
+    VARIABLE=$(echo $VARIABLE | sed 's/[[:space:]]*$//') # обрезать трейлинг
     echo "$VARIABLE"
 }
 
@@ -466,4 +464,3 @@ function main() {
 }
 
 main $@
-

@@ -2,103 +2,96 @@
 
 ![Arch Linux](https://img.shields.io/badge/-ArchLinux-black?logo=arch-linux)
 ![Bash](https://img.shields.io/badge/sh-bash-black)
-[![Donate](https://img.shields.io/badge/-Donate-yellow?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3PF47D5TSNL7C&currency_code=EUR)
 
-Arch Linux Install Script (or alis) installs unattended, automated and customized Arch Linux system.
 
-It is a simple bash script that fully automates the installation of a Arch Linux system after booting from the original Arch Linux installation media. It contains the same commands that you would type and execute one by one interactively to complete the installation. The only user intervention needed is to edit a configuration file to choose the installation options and preferences from partitioning, to encryption, bootloader, file system, language and keyboard mapping, desktop environment, kernels, packages to install and graphic drivers. This automation makes the installation easy and fast.
+Сценарий установки Arch Linux (или alis) устанавливает автоматическую, автоматизированную и настроенную систему Arch Linux.
 
-If some time later after an system update for any reason the system does not boot correctly a recovery script is also provided to enter in a recovery mode that allows to downgrade packages or execute any other commands to restore the system. Also a log of the installation can be taken with <a href="https://asciinema.org/">asciinema</a>.
+Это простой сценарий bash, который полностью автоматизирует установку системы Arch Linux после загрузки с исходного установочного носителя Arch Linux. Он содержит те же команды, которые вы вводите и выполняете одну за другой в интерактивном режиме для завершения установки. Единственное, что требуется от пользователя, - это отредактировать файл конфигурации, чтобы выбрать параметры установки и предпочтения от разбиения на разделы до шифрования, загрузчика, файловой системы, языка и раскладки клавиатуры, среды рабочего стола, ядер, пакетов для установки и графических драйверов. Эта автоматизация делает установку простой и быстрой.
 
-**Warning! This script can delete all partitions of the persistent storage. It is recommended to test it first in a virtual machine like <a href="https://www.virtualbox.org/">VirtualBox</a>.**
+Если спустя некоторое время после обновления системы по какой-либо причине система не загружается правильно, также предоставляется сценарий восстановления для входа в режим восстановления, который позволяет откатить пакеты или выполнить любые другие команды для восстановления системы. Также журнал установки можно взять с <a href="https://asciinema.org/">asciinema</a>.
+
+**Предупреждение! Этот сценарий может удалить все разделы постоянного хранилища. Рекомендуется сначала протестировать его на виртуальной машине, например <a href="https://www.virtualbox.org/">VirtualBox</a>.**
 
 Currently these scripts are for me but maybe they are useful for you too.
 
-Follow the [Arch Way](https://wiki.archlinux.org/index.php/Arch_Linux) of doing things and learn what this script does. This will allow you to know what is happening. 
+Следовать [Arch Way](https://wiki.archlinux.org/index.php/Arch_Linux) делать что-то и узнать, что делает этот скрипт. Это позволит вам узнать, что происходит.
 
-Please, don't ask for support for this script in Arch Linux forums, first read the [Arch Linux wiki](https://wiki.archlinux.org), the [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) and the [General Recommendations](https://wiki.archlinux.org/index.php/General_recommendations), later compare those commands with the commands of this script.
+Пожалуйста, не просите поддержки для этого скрипта на форумах Arch Linux, сначала прочтите [Arch Linux wiki](https://wiki.archlinux.org), [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide) и [General Recommendations](https://wiki.archlinux.org/index.php/General_recommendations), позже сравните эти команды с командами этого скрипта.
 
-For new features, improvements and bugs fill an issue in GitHub or make a pull request. You can test it in a [VirtualBox](https://www.virtualbox.org/) virtual machine (strongly recommended) before run it in real hardware. If you test it in real hardware please send me an email to pico.dev@gmail.com with the machine description and tell me if something goes wrong or all works fine. [Pull request](https://github.com/picodotdev/alis/pulls) and [new feature request](https://github.com/picodotdev/alis/issues) are welcome!
+Чтобы узнать о новых функциях, улучшениях и ошибках, заполните проблему в GitHub или сделайте запрос на перенос. Вы можете проверить это в [VirtualBox](https://www.virtualbox.org/) виртуальную машину (настоятельно рекомендуется), прежде чем запускать ее на реальном оборудовании. Если вы протестируете его на реальном оборудовании, отправьте мне письмо по адресу mr.geek1@protonmail.com с описанием машины и сообщите, если что-то пойдет не так или все работает нормально. [Pull request](https://github.com/mrgeek12/alis/pulls) и [new feature request](https://github.com/mrgeek12/alis/issues) добро пожаловать!
 
-**Arch Linux Install Script (alis) is based on Arch Linux but is NOT approved, sponsored, or affiliated with Arch Linux or its related projects.**
+** Сценарий установки Arch Linux (alis) основан на Arch Linux, но НЕ одобрен, не спонсируется и не связан с Arch Linux или связанными с ним проектами. **
 
-[![Arch Linux](https://picodotdev.github.io/alis/images/logos/archlinux.svg "Arch Linux")](https://www.archlinux.org/)
+[![Arch Linux](https://mrgeek12.github.io/alis/images/logos/archlinux.svg "Arch Linux")](https://www.archlinux.org/)
 
 ### Index
 
-* [Donations](https://github.com/picodotdev/alis#donations)
-* [Principles](https://github.com/picodotdev/alis#principles)
-* [Features](https://github.com/picodotdev/alis#features)
-* [System installation](https://github.com/picodotdev/alis#system-installation)
-* [Packages installation](https://github.com/picodotdev/alis#packages-installation)
-* [Recovery](https://github.com/picodotdev/alis#recovery)
-* [How you can help](https://github.com/picodotdev/alis#how-you-can-help)
-* [Test in VirtualBox with Packer](https://github.com/picodotdev/alis#test-in-virtualbox-with-packer)
-* [Video](https://github.com/picodotdev/alis#video)
-* [Arch Linux Installation Media](https://github.com/picodotdev/alis#arch-linux-installation-media)
-* [Reference](https://github.com/picodotdev/alis#reference)
+* [Принципы](https://github.com/mrgeek12/alis#principles)
+* [Функции](https://github.com/mrgeek12/alis#features)
+* [Установка системы](https://github.com/mrgeek12/alis#system-installation)
+* [Установка пакетов](https://github.com/mrgeek12/alis#packages-installation)
+* [Восстановление](https://github.com/mrgeek12/alis#recovery)
+* [Как ты можешь помочь](https://github.com/mrgeek12alis#how-you-can-help)
+* [Тест в VirtualBox с Packer](https://github.com/mrgeek12/alis#test-in-virtualbox-with-packer)
+* [Видео](https://github.com/picodotdev/alis#video)
+* [Установочный носитель Arch Linux](https://github.com/mrgeek12/alis#arch-linux-installation-media)
+* [Ссылки](https://github.com/mrgeek12/alis#reference)
 
-### Donations
+### Принципы
 
-If you find useful this script, you can support me with a [small donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3PF47D5TSNL7C&currency_code=EUR) through PayPal to continue adding features, updating the script, accepting pull request and responding to any question. Also there are other ways you can contribute in the [How you can help](https://github.com/picodotdev/alis#how-you-can-help) section.
+* Используйте оригинальный установочный носитель Arch Linux.
+* Максимально автоматизированный и автоматизированный, требует как можно меньше интерактивности
+* Позволяет настроить установку для наиболее распространенных случаев
+* Обеспечить поддержку восстановления системы
+* Обеспечение поддержки журнала установки
 
-[![Donate with PayPal button](https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif "PayPal - The safer, easier way to pay online!")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=3PF47D5TSNL7C&currency_code=EUR)
+### Функции
 
-### Principles
+* ** Система **: UEFI, BIOS
+* ** Хранилище **: SATA, NVMe и MMC
+* ** Шифрование **: корневой раздел зашифрован и не зашифрован
+* ** Раздел **: нет LVM, LVM, LVM в LUKS, GPT в UEFI, MBR в BIOS
+* ** Файловая система **: ext4, btrfs (с вложенными томами), xfs, f2fs, reiserfs
+* ** Ядра **: linux, linux-lts, linux-hardened, linux-zen
+* ** Среда рабочего стола **: GNOME, KDE, XFCE, Mate, Cinnamon, LXDE, i3-wm, i3-gaps, Deepin
+* ** Диспетчеры **: GDM, SDDM, Lightdm, lxdm
+* ** Графический контроллер **: Intel, NVIDIA и AMD с возможностью раннего запуска KMS. С Intel опционально fastboot, аппаратным ускорением видео и сжатием кадрового буфера.
+* ** Загрузчик **: GRUB, rEFInd, systemd-boot
+* ** Пользовательская оболочка **: bash, zsh, dash, fish
+* ** Установка сети WPA WIFI **
+* ** Periodic TRIM ** для SSD-накопителя
+* Микрокод процессоров Intel и AMD ** **
+* Необязательный ** файл подкачки **
+* ** гостевые дополнения VirtualBox **
+* ** Сжатие ядра ** и ** специальные параметры **
+* ** Создание пользователей ** и ** добавление в sudoers **
+* ** systemd units включить или отключить **
+* ** Поддержка Multilib **
+* ** Arch Linux ** установка обычных и пользовательских ** пакетов **
+* Установка утилиты Flatpak и ** установка пакетов Flatpak **
+* Установка утилиты SDKMAN и ** установка пакетов SDKMAN **
+* Установка ** утилиты AUR ** (paru, yay, aurman) и ** установка пакетов AUR **
+* ** Установка пакетов после установки базовой системы ** (предпочтительный способ установки пакетов)
+* Скрипт для загрузки, установки и ** скрипты восстановления ** и файлы конфигурации
+* ** Повторить загрузку пакетов ** при ошибке подключения / зеркала
+* ** Поддержка упаковщика ** для тестирования в VirtualBox
+* ** Журнал установки ** со всеми выполненными командами и выводом в файл и / или ** asciinema video **
+* После установки дождитесь ** прерывистой перезагрузки **
+* Разветвите репозиторий и ** используйте свою собственную конфигурацию **
 
-* Use the original Arch Linux installation media
-* As much unattended and automated as possible, require as little interactivity as possible
-* Allow to customize the installation to cover the most common cases
-* Provide support for system recovery
-* Provide support for installation log
+### Установка системы
 
-### Features
+Загрузите и загрузитесь с последней <a href="https://www.archlinux.org/download/">оригинальный установочный носитель Arch Linux</a>. После загрузки используйте следующие команды, чтобы начать установку.
 
-* **System**: UEFI, BIOS
-* **Storage**: SATA, NVMe and MMC
-* **Encryption**: root partition encrypted and no encrypted
-* **Partition**: no LVM, LVM, LVM on LUKS, GPT on UEFI, MBR on BIOS
-* **File system**: ext4, btrfs (with subvols), xfs, f2fs, reiserfs
-* **Kernels**: linux, linux-lts, linux-hardened, linux-zen
-* **Desktop environment**: GNOME, KDE, XFCE, Mate, Cinnamon, LXDE, i3-wm, i3-gaps, Deepin
-* **Display managers**: GDM, SDDM, Lightdm, lxdm
-* **Graphics controller**: intel, nvidia and amd with optionally early KMS start. With intel optionally fastboot, hardware video acceleration and framebuffer compression.
-* **Bootloader**: GRUB, rEFInd, systemd-boot
-* **Custom shell**: bash, zsh, dash, fish
-* **WPA WIFI network** installation
-* **Periodic TRIM** for SSD storage
-* Intel and AMD **processors microcode**
-* Optional **swap file**
-* **VirtualBox guest additions**
-* **Kernel compression** and **custom parameters**
-* **Users creation** and **add to sudoers**
-* **systemd units enable or disable**
-* **Multilib** support
-* **Arch Linux** common and custom **packages installation**
-* Flatpak utility installation and **Flatpak packages installation**
-* SDKMAN utility installation and **SDKMAN packages installation**
-* **AUR utility** installation (paru, yay, aurman) and **AUR packages installation**
-* **Packages installation after base system installation** (preferred way of packages installation)
-* Script for download installation and **recovery scripts** and configuration files
-* **Retry packages download** on connection/mirror error
-* **Packer support** for testing in VirtualBox
-* **Installation log** with all commands executed and output in a file and/or **asciinema video**
-* Wait after installation for an **abortable reboot**
-* Fork the repository and **use your own configuration**
+Следовать <a href="https://wiki.archlinux.org/index.php/Arch_Linux">Arch Way</a> делать что-то и узнать, что делает этот скрипт. Это позволит вам узнать, что происходит.
 
-### System installation
-
-Download and boot from the latest <a href="https://www.archlinux.org/download/">original Arch Linux installation media</a>. After boot use the following commands to start the installation.
-
-Follow the <a href="https://wiki.archlinux.org/index.php/Arch_Linux">Arch Way</a> of doing things and learn what this script does. This will allow you to know what is happening. 
-
-Internet connection is required, with wireless WIFI connection see <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration#Wi-Fi_Protected_Access">Wireless_network_configuration</a> to bring up WIFI connection before start the installation.
+Требуется подключение к Интернету, с беспроводным подключением WIFI см. <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration#Wi-Fi_Protected_Access">Wireless_network_configuration</a> для подключения WIFI перед началом установки.
 
 ```
 #                         # Start the system with latest Arch Linux installation media
 # loadkeys [keymap]       # Load keyboard keymap, eg. loadkeys es, loadkeys us, loadkeys de
 # iwctl --passphrase "[WIFI_KEY]" station [WIFI_INTERFACE] connect "[WIFI_ESSID]"          # (Optional) Connect to WIFI network. _ip link show_ to know WIFI_INTERFACE.
-# curl -sL https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash     # Download alis scripts
+# curl -sL https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash     # Download alis scripts
 # # curl -sL https://bit.ly/2F3CATp | bash                                                 # Alternative download URL with URL shortener
 # ./alis-asciinema.sh     # (Optional) Start asciinema video recording
 # vim alis.conf           # Edit configuration and change variables values with your preferences (system configuration)
@@ -108,59 +101,58 @@ Internet connection is required, with wireless WIFI connection see <a href="http
 # ./alis-reboot.sh        # (Optional) Reboot the system, only necessary when REBOOT="false"
 ```
 
-If you fork _alis_ repository you can host your own configuration and changes in your repository.
+Если вы разветвляете репозиторий _alis_, вы можете разместить свою собственную конфигурацию и изменения в своем репозитории.
 
 ```
-# curl https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash -s -- -u [github user]
+# curl https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash -s -- -u [github user]
 ```
 
-### Packages installation
+### Установка пакетов
 
-After the base Arch Linux system is installed, alis can install packages with pacman, Flatpak, SDKMAN and from AUR.
+После установки базовой системы Arch Linux alis может устанавливать пакеты с помощью pacman, Flatpak, SDKMAN и из AUR.
 
 ```
 #                                  # After system installation start a user session
-# curl -sL https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash     # Download alis scripts
-# # curl -sL https://bit.ly/2F3CATp | bash                                                 # Alternative download URL with URL shortener
+# curl -sL https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash     # Download alis scripts
+# # curl -sL https://bit.ly/3b0TtAh | bash                                                 # Alternative download URL with URL shortener
 # ./alis-packages-asciinema.sh     # (Optional) Start asciinema video recording
 # vim alis-packages.conf           # Edit configuration and change variables values with your preferences (packages to install)
 # ./alis-packages.sh               # Start packages installation
 ```
 
-### Recovery
+### Восстановление
 
-Boot from the latest <a href="https://www.archlinux.org/download/">original Arch Linux installation media</a>. After boot use the following commands to start the recovery, this will allow you to enter in the arch-chroot environment.
+Загрузиться с последней <a href="https://www.archlinux.org/download/">оригинальный установочный носитель Arch Linux</a>. После загрузки используйте следующие команды для запуска восстановления, это позволит вам войти в среду arch-chroot.
 
 ```
 #                                  # Start the system with latest Arch Linux installation media
 # loadkeys [keymap]                # Load keyboard keymap, eg. loadkeys es, loadkeys us, loadkeys de
 # iwctl --passphrase "[WIFI_KEY]" station [WIFI_INTERFACE] connect "[WIFI_ESSID]"          # (Optional) Connect to WIFI network. _ip link show_ to know WIFI_INTERFACE.
-# curl -sL https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash     # Download alis scripts
-# # curl -sL https://bit.ly/2F3CATp | bash                                                 # Alternative download URL with URL shortener
+# curl -sL https://raw.githubusercontent.com/mrgeek12/alis/master/download.sh | bash     # Download alis scripts
+# # curl -sL https://bit.ly/3b0TtAh | bash                                                 # Alternative download URL with URL shortener
 # ./alis-recovery-asciinema.sh     # (Optional) Start asciinema video recording
 # vim alis-recovery.conf           # Edit configuration and change variables values with your last installation configuration with alis (mainly device and partition scheme)
 # ./alis-recovery.sh               # Start recovery
 # ./alis-recovery-reboot.sh        # Reboot the system
 ```
 
-### How you can help
+### Как ты можешь помочь
 
-* Test in VirtualBox and create an issue if something does not work, attach the main parts of the used configuration file and the error message
-* Create issues with new features
-* Send pull requests
-* Share it in social networks, forums, create a blog post or video about it
-* Send me an email, I like to read that the script is being used and is useful :). Which are your computer specs, which is your alis configuration, if is your personal or working computer, if all worked fine or some suggestion to improve the script
-* Consider to make a [small donation](https://github.com/picodotdev/alis#donations)
+* Протестируйте в VirtualBox и создайте проблему, если что-то не работает, прикрепите основные части используемого файла конфигурации и сообщение об ошибке
+* Создавать проблемы с новыми функциями
+* Отправить запросы на вытягивание
+* Поделитесь им в социальных сетях, на форумах, создайте пост в блоге или видео об этом
+* Напишите мне письмо, я люблю читать, что скрипт уже используется и полезен :). Каковы характеристики вашего компьютера, какова ваша конфигурация alis, ваш персональный или рабочий компьютер, все ли работает нормально или какие-то предложения по улучшению скрипта
 
-### Test in VirtualBox with Packer
+### Тест в VirtualBox с Packer
 
-VirtualBox and [Packer](https://packer.io/) are required.
+VirtualBox и [Packer](https://packer.io/) являются обязательными.
 
-* Firmware: efi, bios
-* File system: ext4, btrfs, f2fs, xfs
-* Partition: luks, lvm
-* Bootloader: grub, refind, systemd
-* Desktop environment: gnome, kde, xfce, ...
+* Прошивка: efi, bios
+* Файловая система: ext4, btrfs, f2fs, xfs
+* Раздел: luks, lvm
+* Загрузчик: grub, refind, systemd
+* Окружение рабочего стола: gnome, kde, xfce, ...
 
 ```
 $ ./alis-packer.sh -c alis-packer-efi-ext4-systemd.sh
@@ -173,15 +165,15 @@ $ ./alis-packer.sh -c alis-packer-efi-ext4-grub-kde.sh
 $ ./alis-packer.sh -c alis-packer-efi-ext4-grub-xfce.sh
 ```
 
-### Video
+### Видео
 
 [![asciicast](https://asciinema.org/a/418524.png)](https://asciinema.org/a/418524)
 
-### Arch Linux Installation Media
+### Установочный носитель Arch Linux
 
 https://www.archlinux.org/download/
 
-### Reference
+### Ссылки
 
 * https://wiki.archlinux.org/index.php/Installation_guide
 * https://wiki.archlinux.org/index.php/Main_page
@@ -240,4 +232,3 @@ https://www.archlinux.org/download/
 * https://wiki.archlinux.org/title/Deepin_Desktop_Environment
 * http://tldp.org/LDP/Bash-Beginners-Guide/html/
 * http://tldp.org/LDP/abs/html/
-

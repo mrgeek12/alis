@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-# Arch Linux Install Script (alis) installs unattended, automated
-# and customized Arch Linux system.
+# Сценарий установки Arch Linux (alis) устанавливает автоматическую установку,
+# и настройку системы Arch Linux.
 # Copyright (C) 2021 picodotdev
 
-GITHUB_USER="picodotdev"
+GITHUB_USER="mrgeek12"
 BRANCH="sid"
 
 while getopts "u:" arg; do
@@ -58,4 +58,3 @@ chmod +x alis-recovery-reboot.sh
 
 chmod +x alis-packages.sh
 chmod +x alis-packages-asciinema.sh
-

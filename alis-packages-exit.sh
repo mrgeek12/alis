@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-# Arch Linux Install Script (alis) installs unattended, automated
-# and customized Arch Linux system.
+# Arch Linux Install Script Packages (alis-packages) устанавливает программное обеспечение
+# пакетов.
 # Copyright (C) 2021 picodotdev
 
 LOG_FILE="alis-packages.log"
@@ -20,4 +20,3 @@ function copy_logs() {
 }
 
 copy_logs
-

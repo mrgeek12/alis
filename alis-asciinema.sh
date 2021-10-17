@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-# Arch Linux Install Script (alis) installs unattended, automated
-# and customized Arch Linux system.
+# Сценарий установки Arch Linux (alis) устанавливает автоматическую, автоматическую установку.
+# и настроенная система Arch Linux.
 # Copyright (C) 2021 picodotdev
 
 #curl -L -o asciinema-2.0.2.zip https://github.com/asciinema/asciinema/archive/v2.0.2.zip
@@ -17,4 +17,3 @@ pacman -S --noconfirm asciinema
 
 clear
 asciinema rec --stdin -i 5 ~/alis.asciinema
-

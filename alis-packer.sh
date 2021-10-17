@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-# Arch Linux Install Script (alis) installs unattended, automated
-# and customized Arch Linux system.
+# Сценарий восстановления Arch Linux (alis) устанавливает автоматическую установку,
+# и настройку системы Arch Linux.
 # Copyright (C) 2021 picodotdev
 
 CONFIG_FILE="alis-packer.json"
@@ -18,4 +18,3 @@ done
 
 packer validate "packer/$CONFIG_FILE"
 packer build -force -on-error=ask -var "config_file_sh=$CONFIG_FILE_SH" "packer/$CONFIG_FILE"
-
