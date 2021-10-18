@@ -6,7 +6,7 @@ set -e
 # Copyright (C) 2021 picodotdev
 
 GITHUB_USER="mrgeek12"
-BRANCH="master"
+BRANCH="Radeon"
 
 while getopts "u:" arg; do
   case ${arg} in
